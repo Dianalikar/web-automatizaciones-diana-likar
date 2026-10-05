@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diana Likar · Automatizaciones con IA para negocios</title>
+<meta name="description" content="Automatizo tu negocio con IA: chatbots 24/7, reservas, WhatsApp e integraciones. Más clientes y menos tareas repetitivas, sin añadir horas a tu día.">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --alt:#f5f3ef; --ink:#111111; --muted:#6b6965;
+  --lila:#d9ccf5; --lila-ink:#4a3a86;
+  --line:rgba(0,0,0,.1); --r:18px;
+  --head:'Montserrat',system-ui,sans-serif; --body:'Poppins',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);font-weight:300;background:var(--bg);color:var(--ink);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+strong{font-weight:500}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+section{padding:110px 0;position:relative}
+.alt{background:var(--alt)}
+.dark{background:var(--ink);color:#fff}
+.em{font-style:italic;font-weight:800;background:linear-gradient(transparent 62%,var(--lila) 62% 92%,transparent 92%);padding:0 .08em}
+.dark .em{background:none;color:var(--lila)}
+.out{color:transparent;-webkit-text-stroke:2px var(--ink)}
+
+/* nav */
+nav{position:fixed;top:0;inset-inline:0;z-index:50;transition:.3s}
+nav.scrolled{background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:var(--head);font-weight:800;letter-spacing:-.03em;font-size:1.1rem}
+.links{display:flex;gap:30px;font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-family:var(--head);font-weight:500}
+.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-family:var(--head);font-weight:600;font-size:.82rem;letter-spacing:.04em;border:1px solid transparent;cursor:pointer;transition:.25s}
+.btn.primary{background:var(--ink);color:#fff}
+.btn.primary:hover{background:#2c2c2c;transform:translateY(-2px)}
+.btn.ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn.sm{padding:10px 20px;font-size:.72rem}
+
+/* hero */
+.hero{padding:0;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:end;min-height:100vh;padding-top:96px}
+.hero-txt{padding-bottom:70px;align-self:center}
+.eyebrow{font-family:var(--head);font-weight:600;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.dark .eyebrow{color:rgba(255,255,255,.55)}
+h1{font-family:var(--head);font-weight:800;font-size:clamp(3.4rem,9vw,7.6rem);line-height:.92;letter-spacing:-.05em}
+.lead{color:var(--muted);font-size:1.05rem;max-width:480px;margin:28px 0 34px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:flex;gap:44px;margin-top:48px}
+.stats div b{display:block;font-family:var(--head);font-weight:800;font-size:2rem;letter-spacing:-.04em;line-height:1.2}
+.stats div+div{border-left:1px solid var(--ink);padding-left:44px}
+.stats div span{font-size:.8rem;color:var(--muted)}
+.hero-ph{align-self:end;background:var(--lila);border-radius:24px 24px 0 0;overflow:hidden;height:min(78vh,640px)}
+.hero-ph img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+
+/* headings */
+h2{font-family:var(--head);font-weight:800;font-size:clamp(2rem,4vw,3.1rem);line-height:1.05;letter-spacing:-.04em;margin-bottom:18px;max-width:760px}
+.sub{color:var(--muted);max-width:600px;font-size:1.02rem}
+.dark .sub{color:rgba(255,255,255,.6)}
+.head{margin-bottom:56px}
+
+/* cards */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{border:1px solid var(--line);background:#fff;border-radius:var(--r);padding:30px;transition:.3s}
+.card:hover{border-color:var(--ink);transform:translateY(-4px)}
+.card .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--lila);margin-bottom:22px;font-size:1.3rem}
+.card h3{font-family:var(--head);font-weight:700;font-size:1.15rem;letter-spacing:-.02em;margin-bottom:10px}
+.card p{color:var(--muted);font-size:.93rem}
+.card ul{list-style:none;margin-top:16px;font-size:.88rem;color:var(--muted)}
+.card li{padding:5px 0 5px 22px;position:relative}
+.card li::before{content:"→";position:absolute;left:0;color:var(--ink)}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.step{padding:28px 24px 28px 0;border-top:1px solid rgba(255,255,255,.22);position:relative}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:var(--head);font-weight:600;font-size:.8rem;color:var(--lila)}
+.step::after{content:"";position:absolute;top:-1px;left:0;height:1px;width:0;background:var(--lila);transition:width 1.2s}
+.step.in::after{width:100%}
+.step h3{font-family:var(--head);font-weight:700;margin:14px 0 8px;font-size:1.1rem}
+.step p{color:rgba(255,255,255,.6);font-size:.92rem}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-ph{display:none}
+.quote{font-family:var(--head);font-weight:600;font-size:clamp(1.5rem,2.8vw,2.1rem);line-height:1.25;letter-spacing:-.03em}
+.about p{color:var(--muted);margin-bottom:18px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.chips span{font-size:.8rem;padding:8px 16px;border:1px solid var(--line);border-radius:999px;background:var(--alt)}
+
+/* pricing */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.plan{border:1px solid var(--line);background:#fff;border-radius:var(--r);padding:34px 30px;display:flex;flex-direction:column}
+.plan.hot{background:var(--ink);color:#fff;border-color:var(--ink)}
+.plan .badge{align-self:flex-start;font-family:var(--head);font-size:.68rem;letter-spacing:.06em;background:var(--lila);color:var(--ink);padding:5px 12px;border-radius:999px;font-weight:700;margin-bottom:14px}
+.plan h3{font-family:var(--head);font-weight:700;font-size:1.15rem}
+.plan .p{font-family:var(--head);font-size:2.6rem;font-weight:800;letter-spacing:-.05em;margin:12px 0 4px}
+.plan .p small{font-family:var(--body);font-size:.9rem;color:var(--muted);font-weight:300;letter-spacing:0}
+.plan .d{color:var(--muted);font-size:.9rem;margin-bottom:22px}
+.plan.hot .d,.plan.hot .p small{color:rgba(255,255,255,.6)}
+.plan ul{list-style:none;margin-bottom:28px;flex:1}
+.plan li{padding:7px 0 7px 26px;position:relative;font-size:.92rem;border-bottom:1px dashed var(--line)}
+.plan.hot li{border-color:rgba(255,255,255,.2)}
+.plan li::before{content:"✓";position:absolute;left:0;font-weight:700}
+.plan.hot .btn.primary{background:var(--lila);color:var(--ink)}
+.plan.hot .btn.primary:hover{background:#fff}
+.note{margin-top:26px;text-align:center;color:var(--muted);font-size:.85rem}
+
+/* contact */
+.contact-box{border-radius:28px;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:56px;background:var(--lila)}
+.contact-box .eyebrow,.contact-box .sub{color:var(--lila-ink)}
+.contact-box .em{background:none;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
+form{display:grid;gap:14px}
+input,textarea,select{width:100%;padding:15px 18px;border-radius:14px;border:1px solid transparent;background:#fff;color:var(--ink);font:inherit;font-weight:400;font-size:.95rem;outline:0;transition:.2s}
+input:focus,textarea:focus,select:focus{border-color:var(--ink)}
+textarea{min-height:110px;resize:vertical}
+select{appearance:none}
+.direct{margin-top:30px;display:grid;gap:12px;font-size:.95rem}
+.direct a{display:flex;align-items:center;gap:12px;font-weight:400}
+.direct a:hover{text-decoration:underline}
+footer{padding:70px 0 32px;background:var(--ink);color:rgba(255,255,255,.6);font-size:.88rem}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:50px;padding-bottom:50px}
+.foot-logo{font-family:var(--head);font-weight:800;font-size:1.5rem;letter-spacing:-.03em;color:#fff}
+.foot-brand p{margin:10px 0 24px;max-width:300px}
+.foot-brand .btn{background:var(--lila);color:var(--ink)}
+.foot-brand .btn:hover{background:#fff}
+.foot-col{display:flex;flex-direction:column;gap:10px}
+.foot-col h4{font-family:var(--head);font-weight:600;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:6px}
+.foot-col a:hover{color:#fff}
+.foot{border-top:1px solid rgba(255,255,255,.15);padding-top:26px}
+.flink{text-decoration:underline;text-underline-offset:3px}
+.flink:hover{color:#fff}
+.hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
+.form-msg{font-size:.88rem;font-weight:500;line-height:1.5}
+.form-msg:empty{display:none}
+.form-msg.ok{color:var(--ink);background:#fff;border-radius:12px;padding:12px 16px}
+.form-msg.err{color:#9b1c1c;background:#fff;border-radius:12px;padding:12px 16px}
+.form-msg a{text-decoration:underline}
+button:disabled{opacity:.6;cursor:wait}
+.legal{font-size:.78rem;color:var(--lila-ink);line-height:1.5}
+.legal a{text-decoration:underline;text-underline-offset:3px;font-weight:500}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:60;width:56px;height:56px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 30px rgba(37,211,102,.4);transition:.25s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+
+@media (max-width:900px){
+  .links{display:none}
+  .hero-grid,.about,.contact-box{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1.15fr;gap:36px 20px}
+  .foot-brand{grid-column:1/-1}
+  .foot-col a{font-size:.82rem;overflow-wrap:anywhere}
+  .hero-grid{min-height:0;gap:30px}
+  .hero-txt{padding-bottom:0;padding-top:20px}
+  .hero-ph{display:none}
+  .hero-txt{padding-bottom:60px}
+  .about-ph{display:block;position:relative;width:min(78%,290px);aspect-ratio:4/5;margin:0 0 52px 0}
+  .about-ph::before{content:"";position:absolute;inset:0;transform:translate(14px,14px);background:#fff;border:1px solid var(--ink);border-radius:24px}
+  .about-ph img{position:relative;width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;border-radius:24px}
+  .grid3,.price-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .contact-box{padding:32px 24px}
+  section{padding:80px 0}
+  .stats{gap:18px}
+  .stats div+div{padding-left:18px}
+  .stats div span{font-size:.72rem;display:block;line-height:1.35}
+}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo">Diana Likar</a>
+    <div class="links">
+      <a href="#servicios">Servicios</a><a href="#proceso">Proceso</a><a href="#sobre">Sobre mí</a><a href="#precios">Precios</a>
+    </div>
+    <a href="#contacto" class="btn primary sm">Hablemos</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-txt">
+      <div class="eyebrow">Automatización &amp; IA para negocios</div>
+      <h1>DIANA<br><span class="em">LIKAR</span></h1>
+      <p class="lead">Chatbots con IA 24/7, reservas automáticas e integraciones con WhatsApp. Elimino las tareas repetitivas <strong>sin que tengas que añadir más horas a tu trabajo.</strong></p>
+      <div class="cta">
+        <a class="btn primary" href="https://wa.me/34638971298?text=Hola%20Diana%2C%20quiero%20automatizar%20mi%20negocio" target="_blank" rel="noopener">Cuéntame tu proyecto →</a>
+        <a class="btn ghost" href="#servicios">Ver servicios</a>
+      </div>
+      <div class="stats">
+        <div><b data-count="24" data-suffix="H">0H</b><span>atención al cliente</span></div>
+        <div><b data-count="8">0</b><span>días · landing lista</span></div>
+        <div><b data-count="100" data-suffix="%">0%</b><span>adaptado a tu negocio</span></div>
+      </div>
+    </div>
+    <div class="hero-ph"><img src="img/diana.webp" alt="Diana Likar" width="900" height="1350" fetchpriority="high"></div>
+  </div>
+</header>
+
+<section id="servicios" class="alt">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">Servicios</div>
+      <h2>Soluciones de IA para <span class="em">automatizar</span> tu negocio</h2>
+      <p class="sub">Cada automatización se construye a medida de cómo trabajas. Sin plantillas genéricas.</p>
+    </div>
+    <div class="grid3">
+      <article class="card reveal"><div class="ic">🤖</div><h3>Chatbots con IA 24/7</h3><p>Un asistente que atiende, responde dudas y capta clientes a cualquier hora.</p><ul><li>Entrenado con la info de tu negocio</li><li>Web, WhatsApp e Instagram</li></ul></article>
+      <article class="card reveal"><div class="ic">⚙️</div><h3>Automatizaciones e integraciones</h3><p>Conecto tus herramientas para que los datos fluyan solos y dejes de copiar y pegar.</p><ul><li>Formularios, CRM, hojas de cálculo</li><li>Avisos y tareas automáticas</li></ul></article>
+      <article class="card reveal"><div class="ic">📲</div><h3>Integración con WhatsApp</h3><p>Mensajes, confirmaciones y recordatorios automáticos donde ya están tus clientes.</p><ul><li>Botón y flujos de conversación</li><li>Menos citas perdidas</li></ul></article>
+      <article class="card reveal"><div class="ic">📅</div><h3>Sistemas de reservas y pagos</h3><p>Agenda online conectada a tu flujo, con cobro integrado cuando lo necesites.</p><ul><li>Reservas automáticas</li><li>Pagos con Stripe</li></ul></article>
+      <article class="card reveal"><div class="ic">🖥️</div><h3>Páginas web que convierten</h3><p>Landing o web multipágina, rápida, responsive y pensada para vender.</p><ul><li>Desde 150 €</li><li>Animaciones y copywriting</li></ul></article>
+      <article class="card reveal"><div class="ic">🔍</div><h3>SEO</h3><p>Que te encuentren cuando buscan lo que ofreces, con una base técnica sólida.</p><ul><li>SEO on-page básico</li><li>Visibilidad local</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section id="proceso" class="dark">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">Proceso</div>
+      <h2>De caos manual a <span class="em">sistema</span> en cuatro pasos</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><h3>Diagnóstico</h3><p>Analizamos tu día a día y detectamos qué tareas te quitan tiempo.</p></div>
+      <div class="step reveal"><h3>Diseño</h3><p>Defino el flujo ideal y las herramientas adecuadas a tu presupuesto.</p></div>
+      <div class="step reveal"><h3>Construcción</h3><p>Lo implemento, lo pruebo y lo conecto con lo que ya usas.</p></div>
+      <div class="step reveal"><h3>Entrega y soporte</h3><p>Te lo explico fácil y te acompaño para que todo funcione bien.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="wrap about">
+    <div class="reveal">
+      <div class="about-ph"><img src="img/diana-movil.webp" alt="Diana Likar" width="1200" height="1800" loading="lazy"></div>
+      <div class="eyebrow">Sobre mí</div>
+      <p class="quote">Tras trabajar en startups vi dónde fallan los negocios que crecen rápido: <span class="em">procesos que dependen de ti.</span></p>
+    </div>
+    <div class="reveal">
+      <p>Soy Diana. Construyo procesos digitales para que tu negocio funcione sin depender de que estés pegado al móvil o al ordenador a todas horas.</p>
+      <p>Mi enfoque es estratégico: primero entiendo cómo ganas dinero, y después automatizo lo que realmente te hace ahorrar tiempo.</p>
+      <div class="chips"><span>Diseño web estratégico</span><span>IA aplicada</span><span>Marcas personales</span><span>Negocios locales</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="precios" class="alt">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">Precios</div>
+      <h2>Empieza por lo que <span class="em">más necesitas</span></h2>
+      <p class="sub">Precios claros para webs; las automatizaciones se presupuestan según lo que tu negocio necesite.</p>
+    </div>
+    <div class="price-grid">
+      <div class="plan reveal"><h3>Landing</h3><div class="p">150 €<small> desde</small></div><div class="d">Tu escaparate profesional en una página.</div>
+        <ul><li>1 página</li><li>Diseño responsive</li><li>WhatsApp o formulario</li><li>Entrega en 8 días</li></ul>
+        <a class="btn ghost" href="#contacto">Lo quiero</a></div>
+      <div class="plan hot reveal"><span class="badge">MÁS POPULAR</span><h3>Web multipágina</h3><div class="p">250 €<small> desde</small></div><div class="d">Presencia completa que posiciona.</div>
+        <ul><li>4 páginas</li><li>SEO + copywriting</li><li>Animaciones al scroll</li><li>Entrega en 10 días</li></ul>
+        <a class="btn primary" href="#contacto">Lo quiero</a></div>
+      <div class="plan reveal"><h3>Automatización IA</h3><div class="p" style="font-size:2rem;margin:20px 0 10px">A medida</div><div class="d">Chatbots, integraciones y flujos.</div>
+        <ul><li>Chatbot IA 24/7</li><li>WhatsApp + reservas</li><li>Integración de tus herramientas</li><li>Presupuesto tras diagnóstico</li></ul>
+        <a class="btn ghost" href="#contacto">Pedir presupuesto</a></div>
+    </div>
+    <p class="note">Dominio y hosting corren por cuenta del cliente. Complementos disponibles: reservas, pagos con Stripe y Linktree/Kajabi.</p>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <div class="contact-box reveal">
+      <div>
+        <div class="eyebrow">Contacto</div>
+        <h2>¿Qué tarea te <span class="em">gustaría quitarte</span> de encima?</h2>
+        <p class="sub">Cuéntame tu proyecto y te respondo con una propuesta clara.</p>
+        <div class="direct">
+          <a href="https://wa.me/34638971298" target="_blank" rel="noopener">📲 +34 638 97 12 98</a>
+          <a href="https://www.instagram.com/dianalikar.digital/" target="_blank" rel="noopener">📸 @dianalikar.digital</a>
+        </div>
+      </div>
+      <form id="form">
+        <input name="nombre" placeholder="Tu nombre" required autocomplete="name">
+        <input name="tel" type="tel" placeholder="Teléfono" autocomplete="tel">
+        <select name="presupuesto" aria-label="Presupuesto">
+          <option value="">Presupuesto aproximado</option>
+          <option>Menos de 300 €</option><option>300 – 600 €</option><option>600 – 1.000 €</option><option>Más de 1.000 €</option>
+        </select>
+        <textarea name="desc" placeholder="Cuéntame tu negocio y qué quieres automatizar" required></textarea>
+        <input class="hp" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn primary" type="submit" id="send">Enviar formulario →</button>
+        <p class="form-msg" id="msg" role="status" aria-live="polite"></p>
+        <p class="legal">Al enviar aceptas la <a href="privacidad.html">política de privacidad</a>. Uso tus datos solo para comunicarme contigo.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="foot-logo">Diana Likar</a>
+        <p>Automatizo procesos para negocios locales.</p>
+        <a class="btn primary" href="https://wa.me/34638971298?text=Hola%20Diana%2C%20quiero%20automatizar%20mi%20negocio" target="_blank" rel="noopener">Escríbeme por WhatsApp →</a>
+      </div>
+      <div class="foot-col">
+        <h4>Navegación</h4>
+        <a href="#servicios">Servicios</a><a href="#proceso">Proceso</a><a href="#sobre">Sobre mí</a><a href="#precios">Precios</a><a href="#contacto">Contacto</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contacto</h4>
+        <a href="https://wa.me/34638971298" target="_blank" rel="noopener">WhatsApp · +34 638 97 12 98</a>
+        <a href="https://www.instagram.com/dianalikar.digital/" target="_blank" rel="noopener">Instagram · @dianalikar.digital</a>
+        <a href="mailto:likardiana@gmail.com">likardiana@gmail.com</a>
+      </div>
+    </div>
+    <div class="foot">
+      <span>© <span id="y"></span> Diana Likar · Diseño web &amp; automatización con IA</span>
+      <span><a href="privacidad.html" class="flink">Política de privacidad</a> · Dominio y hosting a cargo del cliente · <a href="#top" class="flink">Volver arriba ↑</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/34638971298" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32"><path d="M16 3a13 13 0 0 0-11 19.8L3 29l6.4-2A13 13 0 1 0 16 3zm0 23.7c-2 0-3.9-.6-5.5-1.6l-.4-.2-3.8 1.2 1.2-3.7-.3-.4A10.7 10.7 0 1 1 16 26.700zm5.900-8c-.3-.2-1.900-.9-2.200-1s-.5-.2-.7.200-.8 1-.9 1.200-.3.200-.6.1a8.700 8.700 0 0 1-4.300-3.800c-.3-.6.300-.5.900-1.700.1-.2 0-.4 0-.5l-1-2.300c-.2-.6-.5-.5-.7-.5h-.6a1.200 1.200 0 0 0-.9.400 3.800 3.800 0 0 0-1.200 2.800 6.600 6.600 0 0 0 1.400 3.500 15 15 0 0 0 5.800 5.100c2.100.9 2.900.9 3.900.8a3.300 3.300 0 0 0 2.200-1.600 2.700 2.700 0 0 0 .2-1.600c-.1-.1-.3-.2-.6-.4z"/></svg></a>
+
+<script>
+// nav
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});
+document.getElementById('y').textContent=new Date().getFullYear();
+
+// reveal + counters
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal,.step').forEach(el=>io.observe(el));
+document.querySelectorAll('[data-count]').forEach(el=>{
+  const t=+el.dataset.count;let n=0;const s=Math.max(1,Math.ceil(t/40));
+  const id=setInterval(()=>{n=Math.min(t,n+s);el.textContent=n+(el.dataset.suffix||'');if(n>=t)clearInterval(id)},35);
+});
+
+// form -> google sheets
+const SHEET_URL='https://script.google.com/macros/s/AKfycbxZC_lSLb4E5H9HdlrlTLPgF3SKC8ToGtItl2legQzsSXQLSMShjDcQgDwSZADpvtUeNA/exec';
+document.getElementById('form').addEventListener('submit',e=>{
+  e.preventDefault();
+  const form=e.target,f=new FormData(form),btn=document.getElementById('send'),out=document.getElementById('msg');
+  const d=new URLSearchParams({
+    nombre:f.get('nombre')||'',
+    telefono:f.get('tel')||'',
+    empresa:'',
+    automatizar:'',
+    tarea:f.get('desc')||'',
+    presupuesto:f.get('presupuesto')||'',
+    web:f.get('web')||''
+  });
+  btn.disabled=true;btn.textContent='Enviando…';out.className='form-msg';out.textContent='';
+  fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:d})
+    .then(()=>{form.reset();out.className='form-msg ok';out.textContent='¡Gracias! Recibí tu mensaje y te respondo en menos de 24 horas.'})
+    .catch(()=>{out.className='form-msg err';out.innerHTML='No se pudo enviar. Escríbeme directamente por <a href="https://wa.me/34638971298" target="_blank" rel="noopener">WhatsApp</a>.'})
+    .finally(()=>{btn.disabled=false;btn.textContent='Enviar formulario →'});
+});
+</script>
+</body>
+</html>
